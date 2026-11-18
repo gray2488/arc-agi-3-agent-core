@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it as follows."
+title: "GoA ARC-AGI-3 Agent Core"
+authors:
+  - name: "Group of AI (GoA)"
+type: software
+date-released: 2026-11-19
+url: "https://github.com/gray2488/arc-agi-3-agent-core"
+keywords:
+  - ARC-AGI-3
+  - agent
+  - Kaggle notebook
