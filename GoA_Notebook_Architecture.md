@@ -18,7 +18,7 @@ These two notebooks are **the same notebook, one with an extra layer bolted on.*
 - Cells in `Run-21_3` that are **not** in `Run-7`: **none.**
 - After removing those 10 cells from `Run-7`, the remaining 36 cells are **byte-identical and in the same order** as `Run-21_3`.
 
-The 10 extra cells are the **GE layer** (GE1–GE4, the grid text-encoding subsystem). Everything else — all 20 agent modules, all gates, the run loop — is the same code.
+The 10 extra cells are the **GE layer** (GE1–GE4, the grid text-encoding subsystem). Everything else — the 16 core file-writing cells (15 Python modules plus one JSON schema), the two deep-mode prompt files, all gates, the run loop — is the same code.
 
 So there is **one architecture here, not two.** `Run-21_3` is the core agent; `Run-7` is that same core with a separate grid-encoding research layer attached.
 
@@ -325,8 +325,8 @@ One architecture, two files.
 The core is a three-layer agent: **eyes** (`grid_text` turns the 64×64 board into objects and text), **context** (`context_manager` assembles a 3-zone prompt with hard budgets), and **decision** (`my_agent` drives the reasoner, optionally delegates to a sandboxed coder-solver under a CEGIS repair loop). Two vLLM servers on one GPU back it — a 27B reasoner and a 30B-A3B code model — and a fail-closed gate chain stands between the build and the first game.
 
 `Run-21_3` is that core, complete, in 36 cells.
-`Run-7` is that same core plus a 506,000-character GE1–GE4 grid-encoding and trust layer, in 46 cells.
+`Run-7` is that same core plus a 476,470-character GE1–GE4 grid-encoding and trust layer, in 46 cells.
 
-Both are internally consistent and verified: 0 syntax errors across every module, certified-bytes and R-13 gates passing, coder-solver conformance 8/8, and `CODER_CODE_CAP` matching its gate pin.
+Static AST parsing found no syntax errors in the 15 Python files written by Run-21_3 or the 22 Python files written by Run-7. The uploaded notebooks contain no saved cell outputs, so this note does not assert that the certified-byte repair, R-13 build, or coder-solver conformance gates were executed or passed in these archived copies. `CODER_CODE_CAP` matches its source gate pin in both files.
 
 Neither is the notebook that cleared levels. That file is not in any archive.
